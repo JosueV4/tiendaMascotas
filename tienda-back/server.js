@@ -1,5 +1,5 @@
 import express from 'express';
-import data from './data.js';
+import path from 'path';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'; 
 import seedRouter from './routes/seedRoutes.js';
@@ -26,6 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/seed', seedRouter);
 app.use('/api/productos', productRouter);
 app.use('/api/users', userRouter);
+
+const _dirname = path.resolve();
+app.use(express.static(path.join(_dirname, '/tienda-front/build')));
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, '/tienda-front/build/index.html'))
+);
 
 //Controlador de errores con express middleware
 app.use((err, req, res, next) => {
