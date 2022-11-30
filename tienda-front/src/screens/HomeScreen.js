@@ -48,7 +48,7 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>PetShop</title>
+        <title>Gym Shop</title>
       </Helmet>
       <h1>Productos</h1>
       <div className="products">

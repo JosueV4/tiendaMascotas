@@ -12,7 +12,8 @@ import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
 import SignupScreen from './screens/SignupScreen';
 import ProfileScreen from './screens/ProfileScreen';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -33,7 +34,10 @@ const { cart, userInfo } = state;
           <Navbar bg="dark" variant="dark">
             <Container>
               <LinkContainer to="/">
-                <Navbar.Brand>PetShop</Navbar.Brand>
+                <Navbar.Brand>
+                  <FontAwesomeIcon icon={faDumbbell} />
+                  &nbsp; Gym Shop
+                </Navbar.Brand>
               </LinkContainer>
               <Nav className="me-auto w-100  justify-content-end">
                 <Link to="/cart" className="nav-link">
